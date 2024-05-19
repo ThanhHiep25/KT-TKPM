@@ -8,4 +8,4 @@ Nhóm 04 :
 2. Dương Văn Quy
 3. Trần Văn Tú
 
-<h3>Đề tài : Thiết kế kiến trúc và phần mềm hệ thống tái chế thiết bị điện tử.</h1>
+<h3>Đề tài : Thiết kế kiến trúc và phần mềm hệ thống tái chế thiết bị điện tử.</h3>
