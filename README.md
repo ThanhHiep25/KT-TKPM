@@ -19,12 +19,24 @@ Hệ thống được sử dụng để tái chế các thiết bị điện t�
 <h4>Mục chính của đề tài</h4>
 
 <p>
-  Giải thích khái niệm và tầm quan trọng của phong cách kiến trúc.
-Xây Dựng và Phát Triển Hệ Thống Tái Chế Điện Tử:
-•	Thiết kế và triển khai một hệ thống tái chế điện tử hiệu quả nhằm giải quyết vấn đề tái chế thiết bị điện tử cũ.
-•	Hệ thống sẽ bao gồm các dịch vụ như báo giá, nhận hàng, đánh giá, kế toán, tái chế và báo cáo, tất cả đều tích hợp và liên kết với nhau qua cơ sở dữ liệu chung.
-Đáp Ứng Nhu Cầu Người Dùng:
-•	Tạo ra một hệ thống dễ sử dụng, tiện lợi và nhanh chóng cho người dùng trong việc tái chế các thiết bị điện tử.
-•	Đảm bảo rằng người dùng có thể truy cập và sử dụng hệ thống thông qua các giao diện web một cách hiệu quả.
-
+Giải thích khái niệm và tầm quan trọng của phong cách kiến trúc.
 </p>
+<p>
+  Xây Dựng và Phát Triển Hệ Thống Tái Chế Điện Tử:
+</p>
+
+<p>
+        •	Thiết kế và triển khai một hệ thống tái chế điện tử hiệu quả nhằm giải quyết vấn đề tái chế thiết bị điện tử cũ.
+        •	Hệ thống sẽ bao gồm các dịch vụ như báo giá, nhận hàng, đánh giá, kế toán, tái chế và báo cáo, tất cả đều tích hợp và liên kết với nhau qua cơ sở dữ liệu chung.
+</p>
+
+<p>
+ Đáp Ứng Nhu Cầu Người Dùng: 
+</p>
+
+<p>
+        •	Tạo ra một hệ thống dễ sử dụng, tiện lợi và nhanh chóng cho người dùng trong việc tái chế các thiết bị điện tử.
+        •	Đảm bảo rằng người dùng có thể truy cập và sử dụng hệ thống thông qua các giao diện web một cách hiệu quả.
+</p>
+
+
