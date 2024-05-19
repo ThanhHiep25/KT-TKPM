@@ -1,6 +1,9 @@
 <h1>Báo cáo cuối kì Kiến trúc và thiết kế phần mềm - DHKTPM16FTT</h1>
 
-
+p {
+  border: 2px solid powderblue;
+  padding: 30px;
+}
 
 Nhóm 04 : 
 ----------- Thành viên ---------
