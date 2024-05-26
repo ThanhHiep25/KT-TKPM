@@ -1,0 +1,36 @@
+.setlogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  width: 150px;
+  border: none;
+  border-radius: 15px;
+  padding: 20px;
+  transition: 0.5s;
+}
+
+.setlogo:hover {
+  height: 300px;
+  width: 200px;
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.31);
+  -webkit-box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.31);
+  -moz-box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.31);
+}
+
+.android {
+  background-color: #bff6c3;
+}
+
+.laptop {
+  background-color: #caf4ff;
+}
+
+.apple {
+  background-color: #bed7dc;
+}
+
+.psoLieu {
+  font-size: 25px;
+  font-weight: bold;
+}

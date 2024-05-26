@@ -58,7 +58,7 @@ function ChartService() {
       </div>
       <div
         style={{
-          marginLeft: "10%",
+          
           wordWrap:"break-word"
         }}
       >

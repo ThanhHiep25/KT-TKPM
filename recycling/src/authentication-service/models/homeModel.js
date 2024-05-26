@@ -6,6 +6,8 @@ import RecyclingOutlinedIcon from "@mui/icons-material/RecyclingOutlined";
 import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined";
 import ChartService from "../services/chartService";
 import FrameHome from "./frameHome";
+import ItemStatusModel from "../../item-status-service/models/itemStatusModel";
+import AccountingModel from "../../accounting-service/models/accountingModel";
 
 function HomeModel() {
   const [color, setColor] = useState(0);
@@ -130,16 +132,21 @@ function HomeModel() {
           
         )}
         {current === 2 && (
-          <div className="content">
-            <h2>Thống kê</h2>
-            <p>Nội dung của Thống kê</p>
+           <div style={{
+            width: "130vh",
+            maxWidth: "100%",
+          }}>
+            <AccountingModel/>
           </div>
         )}
         {current === 3 && (
-          <div className="content">
-            <h2>Thiết bị tái chế</h2>
-            <p>Nội dung của Thiết bị tái chế</p>
-          </div>
+            <div style={{
+              width: "130vh",
+              maxWidth: "100%",
+
+            }}>
+              <ItemStatusModel/>
+            </div>
         )}
         {current === 4 && (
           <div className="content">

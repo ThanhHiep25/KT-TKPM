@@ -3,7 +3,7 @@ import ChartService from "../services/chartService";
 import apple from "../../IMG/apple-logo.png";
 import laptop from "../../IMG/laptop.png";
 import android from "../../IMG/technology.png";
-import "../Css/fram.css"
+import "../Css/fram.css";
 
 function FrameHome() {
   return (
@@ -17,10 +17,9 @@ function FrameHome() {
           justifyContent: "space-around",
           height: "40vh",
           maxHeight: "100%",
-          maxWidth: "100%",
         }}
       >
-        <div>
+        <div className="setlogo android" title="Số lượng sản phẩm android">
           <img
             src={android}
             style={{
@@ -29,10 +28,10 @@ function FrameHome() {
             }}
             alt="android"
           />
-          <p>325</p>
-          <p>Androids</p>
+          <p className="psoLieu">325</p>
+          <p className="psoLieu">Android</p>
         </div>
-        <div>
+        <div className="setlogo laptop" title="Số lượng sản phẩm laptop">
           <img
             src={laptop}
             style={{
@@ -41,11 +40,11 @@ function FrameHome() {
             }}
             alt="Laptops"
           />
-           <p>325</p>
-          <p>Androids</p>
+          <p className="psoLieu">325</p>
+          <p className="psoLieu">Laptop</p>
         </div>
 
-        <div>
+        <div className="setlogo apple" title="Số lượng sản phẩm apple">
           <img
             src={apple}
             style={{
@@ -54,8 +53,8 @@ function FrameHome() {
             }}
             alt="Apples"
           />
-           <p>325</p>
-          <p>Androids</p>
+          <p className="psoLieu">325</p>
+          <p className="psoLieu">Apple</p>
         </div>
       </div>
 
