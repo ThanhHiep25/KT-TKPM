@@ -64,13 +64,15 @@ function AddItemService() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  padding: 20,
+                  overflowY:"scroll",  
+                  overflowX:"hidden",  
+                  height:"700px"        
                 }}
               >
                 <h2 style={{ textAlign: "center" }}>
                   Thêm sản phẩm tái chế
                 </h2>
-                <form style={{ width: "100%", maxWidth: 600 }}>
+                <form style={{ width: "100%", maxWidth: 500 }}>
                   <div style={{ marginBottom: 20 }}>
                     <label>Họ Tên:</label>
                     <input
