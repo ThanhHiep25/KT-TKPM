@@ -40,7 +40,7 @@ function FrameHome() {
             }}
             alt="Laptops"
           />
-          <p className="psoLieu">325</p>
+          <p className="psoLieu">25</p>
           <p className="psoLieu">Laptop</p>
         </div>
 
@@ -53,7 +53,7 @@ function FrameHome() {
             }}
             alt="Apples"
           />
-          <p className="psoLieu">325</p>
+          <p className="psoLieu">50</p>
           <p className="psoLieu">Apple</p>
         </div>
       </div>

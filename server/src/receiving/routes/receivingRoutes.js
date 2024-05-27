@@ -41,4 +41,21 @@ router.get('/data', async (req, res) => {
     }
 });
 
+// Route để xóa thiết bị
+router.delete('/delete/:id', async (req, res) => {
+    const deviceId = req.params.id;
+    try {
+        const deletedDevice = await Device.findByIdAndDelete(deviceId);
+        if (!deletedDevice) {
+            return res.status(404).json({ message: "Device not found" });
+        }
+        res.status(200).json({ message: "Device deleted successfully", deletedDevice });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+module.exports = router;
+
+
 module.exports = router;
