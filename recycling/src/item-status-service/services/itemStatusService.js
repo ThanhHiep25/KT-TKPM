@@ -1,44 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
-function ItemStatusService() {
+function ItemStatusService({onDeviceAdded}) {
+  const [devices, setDevices] = useState([]);
+
+
+  useEffect(() => {
+    fetchDevices();
+  }, []); // Load devices on initial render
+
+  const fetchDevices = () => {
+    fetch("http://localhost:3007/receiveItem")
+      .then((response) => response.json())
+      .then((data) => setDevices(data))
+      .catch((error) => console.error("Error fetching devices:", error));
+  };
+
+   // Call the callback function when a new device is added
+   useEffect(() => {
+    if (typeof onDeviceAdded === "function") {
+      onDeviceAdded(fetchDevices);
+    }
+  }, [onDeviceAdded]);
+
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "firstName", headerName: "First name", width: 130 },
-    { field: "lastName", headerName: "Last name", width: 130 },
+    { field: "name", headerName: "Họ tên", width: 130 },
+    { field: "std", headerName: "Số điện thoại", width: 130 },
     {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      width: 90,
+      field: "nameSP",
+      headerName: "Tên sản phẩm",
+      type: "",
+      width: 130,
     },
     {
-      field: "fullName",
-      headerName: "Full name",
-      description: "This column has a value getter and is not sortable.",
-      sortable: false,
+      field: "loaiSP",
+      headerName: "Loại sản phẩm",
+      type: "",
+      width: 130,
+    },
+    {
+      field: "diaChi",
+      headerName: "Địa chỉ",
+      type: "",
       width: 160,
-      valueGetter: (value, row) =>
-        `${row?.firstName || ""} ${row?.lastName || ""}`,
+    },
+    {
+      field: "tinhTrang",
+      headerName: "Tình trạng thiết bị",
+      type: "",
+      width: 260,
     },
   ];
 
-  const rows = [
-    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-    { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-    { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-    { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-    { id: 6, lastName: "Melisandre", firstName: "", age: 150 }, // Đổi `null` thành chuỗi trống
-    { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-    { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-    { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-  ];
   return (
-    <div style={{ height: 400, width: "100%" , marginTop: "100px",  marginLeft:"100px" }}>
-        <h1>Bảng sản phẩm</h1>
+    <div
+      style={{
+        height: 400,
+        width: "100%",
+        marginTop: "100px",
+        marginLeft: "100px",
+      }}
+    >
+      <h1>Bảng sản phẩm</h1>
       <DataGrid
-        rows={rows}
+        rows={devices}
         columns={columns}
         initialState={{
           pagination: {

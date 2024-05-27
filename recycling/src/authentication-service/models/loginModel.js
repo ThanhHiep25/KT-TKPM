@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
@@ -7,8 +7,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
+import axios from "axios";
 import "../Css/login.css";
-
 import {
   Button,
   FilledInput,
@@ -21,11 +21,35 @@ import { useNavigate } from "react-router-dom";
 const LoginModel = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("http://localhost:3007/login", {
+        email,
+        password,
+      });
+      console.log(response.data);
+      toast.success(response.data.message);
+      // Lưu trữ thông tin người dùng vào local storage
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Đăng nhập thất bại");
+    }
+  };
+  
 
   return (
     <div
@@ -38,7 +62,7 @@ const LoginModel = () => {
         maxHeight: "100%",
       }}
     >
-      <ToastContainer/>
+      <ToastContainer />
       <div
         style={{
           display: "flex",
@@ -67,7 +91,13 @@ const LoginModel = () => {
             noValidate
             autoComplete="off"
           >
-            <TextField id="filled-basic" label="Email" variant="filled" />
+            <TextField
+              id="filled-basic"
+              label="Email"
+              variant="filled"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <FormControl sx={{ m: 1, width: "300px" }} variant="filled">
               <InputLabel htmlFor="filled-adornment-password">
                 Password
@@ -75,6 +105,8 @@ const LoginModel = () => {
               <FilledInput
                 id="filled-adornment-password"
                 type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -104,22 +136,13 @@ const LoginModel = () => {
                 fontSize: "16px",
               }}
               className="log-container-sign"
-              onClick={
-                ()=>{
-                  navigate("/sign-up")
-                }
-              }
+              onClick={() => {
+                navigate("/sign-up");
+              }}
             >
               Đăng ký tài khoản
             </p>
-            <Button variant="contained"
-            onClick={()=>{
-              toast.success("Đăng nhập thành công")
-              setTimeout(() => {
-                navigate("/home")
-              }, 2000);
-            }}
-            >
+            <Button variant="contained" onClick={handleLogin}>
               <TrendingFlatIcon fontSize="large" />
             </Button>
           </div>

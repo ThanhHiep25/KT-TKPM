@@ -1,10 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const deviceSchema = new mongoose.Schema({
-    name: String,
-    model: String,
-    condition: String,
-    received: Boolean,
+  id: String,
+  name: String,
+  std: String,
+  nameSP: String,
+  loaiSP: String,
+  diaChi: String,
+  tinhTrang: String,
 });
 
-module.exports = mongoose.model('Device', deviceSchema);
+module.exports = mongoose.model("Device", deviceSchema);

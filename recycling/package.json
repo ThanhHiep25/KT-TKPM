@@ -13,6 +13,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
@@ -51,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "browserify-zlib": "^0.2.0",
     "eslint-plugin-react-hooks": "^4.6.2"
   }
 }

@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost:27017/accounting', {
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Could not connect to MongoDB', err));
 
-app.use('/accounting', accountingRoutes);
+app.use('/account', accountingRoutes);
 
 app.listen(3004, () => {
     console.log('Accounting Service listening on port 3004');

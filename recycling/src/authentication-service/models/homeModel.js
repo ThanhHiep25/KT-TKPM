@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Css/home.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
 import RecyclingOutlinedIcon from "@mui/icons-material/RecyclingOutlined";
 import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined";
-import ChartService from "../services/chartService";
 import FrameHome from "./frameHome";
 import ItemStatusModel from "../../item-status-service/models/itemStatusModel";
 import AccountingModel from "../../accounting-service/models/accountingModel";
@@ -12,6 +11,14 @@ import AccountingModel from "../../accounting-service/models/accountingModel";
 function HomeModel() {
   const [color, setColor] = useState(0);
   const [current, setCurrent] = useState(null);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Lấy thông tin người dùng từ local storage
+    const userData = JSON.parse(localStorage.getItem('user'));
+    setUser(userData);
+  }, []);
+
   const handleClickSetColor = (index) => {
     setColor(index);
     setCurrent(index);
@@ -62,7 +69,7 @@ function HomeModel() {
               color: "Gray",
             }}
           >
-            Name
+            {user ? user.name : 'Guest'}
           </p>
         </div>
 
@@ -123,30 +130,19 @@ function HomeModel() {
       </div>
       <div>
         {current === 1 && (
-          <div style={{
-            width: "130vh",
-            maxWidth: "100%",
-          }}>
-            <FrameHome/>
+          <div style={{ width: "130vh", maxWidth: "100%" }}>
+            <FrameHome />
           </div>
-          
         )}
         {current === 2 && (
-           <div style={{
-            width: "130vh",
-            maxWidth: "100%",
-          }}>
-            <AccountingModel/>
+          <div style={{ width: "130vh", maxWidth: "100%" }}>
+            <AccountingModel />
           </div>
         )}
         {current === 3 && (
-            <div style={{
-              width: "130vh",
-              maxWidth: "100%",
-
-            }}>
-              <ItemStatusModel/>
-            </div>
+          <div style={{ width: "130vh", maxWidth: "100%" }}>
+            <ItemStatusModel />
+          </div>
         )}
         {current === 4 && (
           <div className="content">
