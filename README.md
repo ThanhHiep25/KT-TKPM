@@ -38,5 +38,3 @@ Giải thích khái niệm và tầm quan trọng của phong cách kiến trúc
         •	Tạo ra một hệ thống dễ sử dụng, tiện lợi và nhanh chóng cho người dùng trong việc tái chế các thiết bị điện tử.<br>
         •	Đảm bảo rằng người dùng có thể truy cập và sử dụng hệ thống thông qua các giao diện web một cách hiệu quả.
 </p>
-
-
