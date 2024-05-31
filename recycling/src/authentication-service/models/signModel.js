@@ -36,7 +36,7 @@ function SignModel() {
         maxHeight: "100%",
       }}
     >
-        <ToastContainer />
+      <ToastContainer />
       <div>
         <Box
           component="form"
@@ -49,6 +49,20 @@ function SignModel() {
           <TextField id="filled-basic" label="Email" variant="filled" />
         </Box>
       </div>
+
+      <div>
+        <Box
+          component="form"
+          sx={{
+            "& > :not(style)": { m: 1, width: "300px" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField id="filled-basic" label="Name" variant="filled" />
+        </Box>
+      </div>
+
 
       <div>
         <FormControl sx={{ m: 1, width: "300px" }} variant="filled">
@@ -73,7 +87,9 @@ function SignModel() {
       </div>
       <div>
         <FormControl sx={{ m: 1, width: "300px" }} variant="filled">
-          <InputLabel htmlFor="filled-adornment-password">Enter the password</InputLabel>
+          <InputLabel htmlFor="filled-adornment-password">
+            Enter the password
+          </InputLabel>
           <FilledInput
             id="filled-adornment-password"
             type={showPassword ? "text" : "password"}
@@ -93,17 +109,20 @@ function SignModel() {
         </FormControl>
       </div>
 
-      <div style={
-        {
-            marginTop: "20px",
-        }
-      }>
-        <Button variant="contained" onClick={() => {
+      <div
+        style={{
+          marginTop: "20px",
+        }}
+      >
+        <Button
+          variant="contained"
+          onClick={() => {
             toast.info("Please");
             setTimeout(() => {
-                navigate("/")
+              navigate("/");
             }, 2000);
-        }}>
+          }}
+        >
           Đăng ký
         </Button>
       </div>

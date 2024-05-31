@@ -25,6 +25,18 @@ router.get('/transactions', async (req, res) => {
     }
 });
 
+router.post('/addtransactions', async (req, res) =>{
+    const { id, nameUser, nameSP, loaiSP, amount } = req.body;
+    try {
+        const transaction = new Transaction({ id, nameUser, nameSP, loaiSP, amount });
+        await transaction.save();
+        res.status(201).json({ message: 'Transaction created', transaction });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+
+})
+
 // Route để kiểm tra kết nối
 router.get('/', (req, res) => {
     res.send('Hello from the Accounting Service!');

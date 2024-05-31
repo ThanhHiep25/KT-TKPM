@@ -8,7 +8,7 @@ function ItemStatusModel() {
 
   return (
     <div className="containerItem" >
-        <AddItemService/>
+        {/* <AddItemService/> */}
         <ItemStatusService/>
     </div>
   );

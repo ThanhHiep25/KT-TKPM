@@ -4,8 +4,8 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AddItemService() {
   const [open, setOpen] = useState(false);
@@ -43,6 +43,7 @@ function AddItemService() {
       });
       if (response.ok) {
         console.log("Device added successfully");
+        toast.success("Thêm sản phẩm thành công");
         setOpen(false); // Close modal on success
       } else {
         console.error("Failed to add device");
@@ -67,6 +68,7 @@ function AddItemService() {
 
   return (
     <div style={{ marginTop: "20px", marginLeft: "100px" }}>
+      <ToastContainer/>
       <h1>Thêm sản phẩm tái chế :</h1>
       <img
         src={add}

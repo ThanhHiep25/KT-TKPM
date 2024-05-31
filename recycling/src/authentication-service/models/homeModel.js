@@ -7,6 +7,7 @@ import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined";
 import FrameHome from "./frameHome";
 import ItemStatusModel from "../../item-status-service/models/itemStatusModel";
 import AccountingModel from "../../accounting-service/models/accountingModel";
+import ReportingModel from "../../reporting-service/models/reportingModel";
 
 function HomeModel() {
   const [color, setColor] = useState(0);
@@ -135,19 +136,18 @@ function HomeModel() {
           </div>
         )}
         {current === 2 && (
-          <div style={{ width: "130vh", maxWidth: "100%" }}>
+          <div style={{ width: "140vh", maxWidth: "100%" }}>
             <AccountingModel />
           </div>
         )}
         {current === 3 && (
-          <div style={{ width: "130vh", maxWidth: "100%" }}>
+          <div style={{ width: "140vh", maxWidth: "100%" }}>
             <ItemStatusModel />
           </div>
         )}
         {current === 4 && (
-          <div className="content">
-            <h2>Phản hổi đánh giá</h2>
-            <p>Nội dung của Phản hổi đánh giá</p>
+          <div style={{ width: "140vh", maxWidth: "100%" }}>
+            <ReportingModel/>
           </div>
         )}
       </div>
