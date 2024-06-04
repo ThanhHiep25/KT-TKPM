@@ -25,6 +25,12 @@ function SignModel() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const [email, setEmail] = useState(null);
+  const [name, setName] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [password, setPassword] = useState(null);
+
   return (
     <div
       style={{
@@ -46,7 +52,13 @@ function SignModel() {
           noValidate
           autoComplete="off"
         >
-          <TextField id="filled-basic" label="Email" variant="filled" />
+          <TextField
+            id="filled-basic"
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            variant="filled"
+          />
         </Box>
       </div>
 
@@ -59,10 +71,34 @@ function SignModel() {
           noValidate
           autoComplete="off"
         >
-          <TextField id="filled-basic" label="Name" variant="filled" />
+          <TextField
+            id="filled-basic"
+            label="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            variant="filled"
+          />
         </Box>
       </div>
 
+      <div>
+        <Box
+          component="form"
+          sx={{
+            "& > :not(style)": { m: 1, width: "300px" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="filled-basic"
+            label="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            variant="filled"
+          />
+        </Box>
+      </div>
 
       <div>
         <FormControl sx={{ m: 1, width: "300px" }} variant="filled">
@@ -70,6 +106,8 @@ function SignModel() {
           <FilledInput
             id="filled-adornment-password"
             type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -78,30 +116,7 @@ function SignModel() {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-      </div>
-      <div>
-        <FormControl sx={{ m: 1, width: "300px" }} variant="filled">
-          <InputLabel htmlFor="filled-adornment-password">
-            Enter the password
-          </InputLabel>
-          <FilledInput
-            id="filled-adornment-password"
-            type={showPassword ? "text" : "password"}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>
             }
@@ -117,10 +132,27 @@ function SignModel() {
         <Button
           variant="contained"
           onClick={() => {
-            toast.info("Please");
-            setTimeout(() => {
-              navigate("/");
-            }, 2000);
+            try {
+               fetch("http://localhost:3007/signup", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  email: email,
+                  name: name,
+                  address: address,
+                  password: password,
+                  role: "",
+                }),
+              });
+              toast.success("Đăng ký thành công !!");
+              setTimeout(() => {
+                navigate("/");
+              }, 2000);
+            } catch (error) {
+             toast.error("Lỗi không thể đăng ký")
+            }
           }}
         >
           Đăng ký

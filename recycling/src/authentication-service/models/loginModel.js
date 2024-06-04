@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
@@ -30,8 +30,6 @@ const LoginModel = () => {
     event.preventDefault();
   };
 
-
-
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:3007/login", {
@@ -41,15 +39,20 @@ const LoginModel = () => {
       console.log(response.data);
       toast.success(response.data.message);
       // Lưu trữ thông tin người dùng vào local storage
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      setTimeout(() => {
-        navigate("/home");
-      }, 2000);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      if (response.data.user.role === "admin") {
+        setTimeout(() => {
+          navigate("/home-admin");
+        }, 2000);
+      }else{
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
+      }
     } catch (error) {
       toast.error(error.response?.data?.message || "Đăng nhập thất bại");
     }
   };
-  
 
   return (
     <div

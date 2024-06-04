@@ -22,10 +22,12 @@ app.use('/addaccounting', createProxyMiddleware({ target: 'http://localhost:3004
 // đánh giá
 app.use('/reporting', createProxyMiddleware({ target: 'http://localhost:3005/reporting/report', changeOrigin: true }));
 app.use('/deletereporting/:id', createProxyMiddleware({ target: 'http://localhost:3005/reporting/deletereport', changeOrigin: true }));
+app.use('/addreporting', createProxyMiddleware({ target: 'http://localhost:3005/reporting/addreport', changeOrigin: true }));
 
 // đăng nhập
 app.use('/login', createProxyMiddleware({ target: 'http://localhost:3006/api/login', changeOrigin: true }));
 app.use('/user', createProxyMiddleware({ target: 'http://localhost:3006/api/users', changeOrigin: true }));
+app.use('/signup', createProxyMiddleware({ target: 'http://localhost:3006/api/signup', changeOrigin: true }));
 
 app.listen(3007, () => {
     console.log('API Gateway listening on port 3007');

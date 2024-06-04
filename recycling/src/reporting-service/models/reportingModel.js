@@ -105,7 +105,8 @@ function ReportingModel() {
                   <h3>Thông tin phản hồi đến khách hàng.</h3>
                   <p>Họ tên : {item.name}</p>
                   <p>ID thiết bị : {item.id}</p>
-                  <p>Số điẹne thoại : {item.std}</p>
+                  <p>Email : {item.email}</p>
+                  <p>Số điện thoại : {item.std}</p>
                   <p>Sản phẩm : {item.nameSP}</p>
                   <p>Loại thiết bị : {item.loaiSP}</p>
                   <p>Ngày nhận yêu cầu : {item.date}</p>

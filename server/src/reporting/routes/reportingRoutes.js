@@ -12,6 +12,17 @@ router.get("/report", async (req, res) => {
   }
 });
 
+router.post("/addreport", async (req, res) => {
+  const {id, name, email, std, nameSP, loaiSP, diaChi, date, dateG, tinhTrang, gia} = req.body;
+  const report = new Report({id, name, email, std, nameSP, loaiSP, diaChi, date, dateG, tinhTrang, gia});
+  try {
+    await report.save();
+    res.status(201).json({ message: "Report created", report });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+})
+
 router.delete("/deletereport", async (req, res) => {
   const id = req.params.id;
   try {

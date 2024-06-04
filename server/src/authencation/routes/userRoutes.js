@@ -38,6 +38,17 @@ router.get('/users/:email', async (req, res) => {
     }
 });
 
+router.post("/signup", async (req, res) => {
+    const { email, password, name, address, role } = req.body;
+    try {
+        const user = new User({ email, password, name, address, role });
+        await user.save();
+        res.status(201).json({ message: 'User created', user });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+})
+
 
 // Route để xử lý đăng nhập
 router.post('/login', async (req, res) => {
